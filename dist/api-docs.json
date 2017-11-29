@@ -1,0 +1,444 @@
+{
+   "swagger":"2.0",
+   "info":{
+      "version":"1.0.0",
+      "title":"Sample spec",
+      "description":"Sample spec for Swagger",
+      "termsOfService":"http://swagger.io/terms/"
+   },
+   "basePath":"/",
+   "tags":[
+      {
+         "name":"Movie",
+         "description":"API for Movie"
+      },
+      {
+        "name":"Book",
+        "description":"API for Book"
+     }
+   ],
+   "schemes":[
+      "http"
+   ],
+   "consumes":[
+      "application/json"
+   ],
+   "produces":[
+      "application/json"
+   ],
+   "paths":{
+      "/movie":{
+         "post":{
+            "tags":[
+               "Movie"
+            ],
+            "description": "what this API does",
+            "operationId": "getAll",
+            "produces":[
+               "application/json"
+            ],
+            "parameters":[
+               {
+                  "name":"title",
+                  "in":"body",
+                  "description":"Movie Title",
+                  "required":true,
+                  "schema":{
+                     "$ref":"#/definitions/Movie"
+                  }
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"create response",
+                  "schema":{
+                     "$ref":"#/definitions/GeneralResponse"
+                  }
+               }
+            }
+         },
+         "get":{
+            "tags":[
+                "Movie"
+             ],
+             "description": "Get all movie",
+             "operationId": "getAll",
+             "produces":[
+                "application/json"
+             ],
+             "responses":{
+                "200":{
+                   "description":"create response",
+                   "schema":{
+                      "$ref":"#/definitions/GetMoviesListResponse"
+                   }
+                },
+                "default":{
+                    "description":"Error",
+                    "schema":{
+                       "$ref":"#/definitions/ErrorResponse"
+                    }
+                }
+             }
+         }
+      },
+      "/movie/{id}":{
+         "delete":{
+            "tags":[
+               "Movie"
+            ],
+            "description":"Deletes a something",
+            "operationId":"delMovie",
+            "produces":[
+               "application/json"
+            ],
+            "parameters":[
+               {
+                  "name":"id",
+                  "in":"path",
+                  "description":"ID to delete",
+                  "required":true,
+                  "type":"string"
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"delete response",
+                  "schema":{
+                     "$ref":"#/definitions/GeneralResponse"
+                  }
+               }
+            }
+         },
+         "get":{
+            "tags":[
+               "Movie"
+            ],
+            "description":"Returns the status of something",
+            "operationId":"getOne",
+            "produces":[
+               "application/json"
+            ],
+            "parameters":[
+               {
+                  "name":"id",
+                  "in":"path",
+                  "description":"ID to fetch",
+                  "required":true,
+                  "type":"string"
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"response",
+                  "schema":{
+                     "$ref":"#/definitions/GetMovieResponse"
+                  }
+               }
+            }
+         },
+         "put":{
+            "tags":[
+               "Movie"
+            ],
+            "description":"Update movie",
+            "operationId":"update",
+            "produces":[
+               "application/json"
+            ],
+            "parameters":[
+               {
+                  "name":"id",
+                  "in":"path",
+                  "description":"ID to fetch",
+                  "required":true,
+                  "type":"string"
+               },
+               {
+                  "name":"title",
+                  "in":"body",
+                  "description":"ID to fetch",
+                  "required":true,
+                  "type":"string"
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"response",
+                  "schema":{
+                     "$ref":"#/definitions/GeneralResponse"
+                  }
+               }
+            }
+         }
+      },
+      "/book":{
+        "post":{
+           "tags":[
+              "Book"
+           ],
+           "description": "what this API does",
+           "operationId": "getAll",
+           "produces":[
+              "application/json"
+           ],
+           "parameters":[
+              {
+                 "name":"title",
+                 "in":"body",
+                 "description":"Book Title",
+                 "required":true,
+                 "schema":{
+                    "$ref":"#/definitions/Book"
+                 }
+              }
+           ],
+           "responses":{
+              "200":{
+                 "description":"create response",
+                 "schema":{
+                    "$ref":"#/definitions/GeneralResponse"
+                 }
+              }
+           }
+        },
+        "get":{
+           "tags":[
+               "Book"
+            ],
+            "description": "Get all book",
+            "operationId": "getAll",
+            "produces":[
+               "application/json"
+            ],
+            "responses":{
+               "200":{
+                  "description":"create response",
+                  "schema":{
+                     "$ref":"#/definitions/GetBooksListResponse"
+                  }
+               },
+               "default":{
+                   "description":"Error",
+                   "schema":{
+                      "$ref":"#/definitions/ErrorResponse"
+                   }
+               }
+            }
+        }
+     },
+     "/book/{id}":{
+        "delete":{
+           "tags":[
+              "Book"
+           ],
+           "description":"Deletes a something",
+           "operationId":"delBook",
+           "produces":[
+              "application/json"
+           ],
+           "parameters":[
+              {
+                 "name":"id",
+                 "in":"path",
+                 "description":"ID to delete",
+                 "required":true,
+                 "type":"string"
+              }
+           ],
+           "responses":{
+              "200":{
+                 "description":"delete response",
+                 "schema":{
+                    "$ref":"#/definitions/GeneralResponse"
+                 }
+              }
+           }
+        },
+        "get":{
+           "tags":[
+              "Book"
+           ],
+           "description":"Returns the status of something",
+           "operationId":"getOne",
+           "produces":[
+              "application/json"
+           ],
+           "parameters":[
+              {
+                 "name":"id",
+                 "in":"path",
+                 "description":"ID to fetch",
+                 "required":true,
+                 "type":"string"
+              }
+           ],
+           "responses":{
+              "200":{
+                 "description":"response",
+                 "schema":{
+                    "$ref":"#/definitions/GetBookResponse"
+                 }
+              }
+           }
+        },
+        "put":{
+           "tags":[
+              "Book"
+           ],
+           "description":"Update book",
+           "operationId":"update",
+           "produces":[
+              "application/json"
+           ],
+           "parameters":[
+              {
+                 "name":"id",
+                 "in":"path",
+                 "description":"ID to fetch",
+                 "required":true,
+                 "type":"string"
+              },
+              {
+                 "name":"title",
+                 "in":"body",
+                 "description":"ID to fetch",
+                 "required":true,
+                 "type":"string"
+              }
+           ],
+           "responses":{
+              "200":{
+                 "description":"response",
+                 "schema":{
+                    "$ref":"#/definitions/GeneralResponse"
+                 }
+              }
+           }
+        }
+     }
+   },
+   "definitions":{
+      "400error":{
+         "properties":{
+            "message":{
+               "type":"string",
+               "example":"400 Bad Request"
+            }
+         }
+      },
+      "GetMovieResponse":{
+          "properties":{
+              "id":{
+                "required": true,
+                "type": "string"
+              },
+              "title":{
+                "required": true,
+                "type": "string"
+              },
+              "year":{
+                "required": true,
+                "type": "integer"
+              }
+          }
+      },
+      "Movie":{
+        "properties": {
+            "title": {
+                "required": true,
+                "type": "string",
+                "desc": "Movie Title"
+            },
+            "year": {
+                "required": true,
+                "type": "integer",
+                "desc": "Movie Title"
+            }
+        }
+      },
+      "GetMoviesListResponse":{
+          "required": "movie",
+          "properties":{
+              "items": {
+                  "properties":{
+                      "id": {
+                          "type":"string"
+                      },
+                      "title": {
+                        "type":"string"
+                      },
+                      "year": {
+                        "type":"integer"
+                      }
+                  }
+              }
+          }
+      },
+      "GeneralResponse":{
+          "items":{
+            
+          },
+          "properties":{
+              "success":{
+                  "required": true,
+                  "type":"integer",
+                  "description":"returns 1 if succesful"
+              },
+              "description":{
+                "required": true,
+                "type":"string",
+                "description":"succesful"
+            }
+          }
+      },
+      "GetBookResponse":{
+        "properties":{
+            "id":{
+              "required": true,
+              "type": "string"
+            },
+            "title":{
+              "required": true,
+              "type": "string"
+            },
+            "year":{
+              "required": true,
+              "type": "integer"
+            }
+        }
+      },
+      "Book":{
+        "properties": {
+            "title": {
+                "required": true,
+                "type": "string",
+                "desc": "Movie Title"
+            },
+            "year": {
+                "required": true,
+                "type": "integer",
+                "desc": "Movie Title"
+            }
+        }
+      },
+      "GetBooksListResponse":{
+        "required": "book",
+        "properties":{
+            "items": {
+                "properties":{
+                    "id": {
+                        "type":"string"
+                    },
+                    "title": {
+                      "type":"string"
+                    },
+                    "year": {
+                      "type":"integer"
+                    }
+                }
+            }
+        }
+    }
+   }
+}
